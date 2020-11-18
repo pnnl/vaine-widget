@@ -1,0 +1,2 @@
+recursive-include vaine/static *.*
+include vaine-widget.json

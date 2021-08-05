@@ -30,8 +30,6 @@
 
 import React, {useRef, useEffect} from 'react'
 import * as d3 from 'd3'
-import d3Tip from "d3-tip"
-d3.tip = d3Tip
 
 import { getATE } from '../src/helperFunctions/getATE'
 
@@ -41,6 +39,9 @@ import VisibilityOff from '@material-ui/icons/VisibilityOff'
 import Autorenew from '@material-ui/icons/Autorenew'
 
 import { makeStyles } from '@material-ui/core/styles'
+
+let d3Tip = require("d3-tip").default;
+d3Tip(d3);
 
 const useStyles = makeStyles((theme) => ({
   lmLayout: {
@@ -276,7 +277,10 @@ export const CoarsenedLmplot = ({selectedTreatment, selectedOutcome, overallATE,
 
     g.call(brush)
 
-    let tip = d3.tip()
+    console.log('d3Tip', d3Tip)
+    // let tip = {};    
+
+    let tip = d3Tip()
       .attr('class', 'd3-tip-lmplot')
       .offset([-10, 0])
       .html(function(d) {

@@ -30,12 +30,13 @@
 
 import React, {useRef, useEffect} from 'react'
 import * as d3 from 'd3'
-import d3Tip from "d3-tip"
-d3.tip = d3Tip
 
 import { formatData } from '../src/helperFunctions/formatData'
 
 import { makeStyles } from '@material-ui/core/styles'
+
+let d3Tip = require("d3-tip").default;
+d3Tip(d3);
 
 const useStyles = makeStyles((theme) => ({
 	chart: {
@@ -192,7 +193,10 @@ export const CoarsenedEmbedding = ({selectedTreatment, regressions, validCluster
 
 		g.call(brush)
 
-		let tip = d3.tip()
+		console.log('d3Tip', d3Tip)
+		// let tip = {};
+
+		let tip = d3Tip()
 			.attr('class', 'd3-tip-embedding')
 			.offset([-10, 0])
 			.html(function(d) {

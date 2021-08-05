@@ -1,18 +1,21 @@
 import React, {Component} from 'react'
 import {render} from 'react-dom'
 
-import {Example} from '../../src'
+import props from './props.json'
 
-class Demo extends Component {
-  render() {
-    return <div>
-      <h1>vane-widget Demo</h1>
-      <div>
-        Visual Analytics for Natural Experiments
-      </div>
-      <Example hello='world'/>
+import {VaineWidget} from '../../'
+
+const Demo = () => {
+  return <div>
+    <h1>vane-widget Demo</h1>
+    <div>
+      Visual Analytics for Natural Experiments
     </div>
-  }
+    <VaineWidget {...props}/>
+    <div>
+    Data Source: <a href='https://archive.ics.uci.edu/ml/machine-learning-databases/auto-mpg/'>Auto MPG</a>
+    </div>
+  </div>
 }
 
 render(<Demo/>, document.querySelector('#demo'))

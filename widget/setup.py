@@ -22,7 +22,7 @@ log.set_verbosity(log.DEBUG)
 log.info('setup.py entered')
 log.info('$PATH=%s' % os.environ['PATH'])
 
-LONG_DESCRIPTION = 'Visual Analytics for Natural Experiments'
+LONG_DESCRIPTION = 'Visualization and AI for Natural Experiments'
 
 def js_prerelease(command, strict=False):
     """decorator for building minified js/css prior to another command"""
@@ -125,7 +125,7 @@ with open(os.path.join(here, 'vaine', '_version.py')) as f:
     exec(f.read(), {}, version_ns)
 
 setup_args = {
-    'name': 'vaine',
+    'name': 'vaine-widget',
     'version': version_ns['__version__'],
     'description': 'Visual Analytics for Natural Experiments',
     'long_description': LONG_DESCRIPTION,
